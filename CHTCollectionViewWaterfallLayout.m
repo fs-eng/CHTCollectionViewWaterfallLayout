@@ -282,18 +282,16 @@ static CGFloat CHTFloorCGFloat(CGFloat value) {
 
     top += headerInset.top;
 
-    if (headerHeight > 0) {
-      attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
-      attributes.frame = CGRectMake(headerInset.left,
-                                    top,
-                                    self.collectionView.bounds.size.width - (headerInset.left + headerInset.right),
-                                    headerHeight);
+    attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+    attributes.frame = CGRectMake(headerInset.left,
+                                  top,
+                                  self.collectionView.bounds.size.width - (headerInset.left + headerInset.right),
+                                  headerHeight);
 
-      self.headersAttribute[@(section)] = attributes;
-      [self.allItemAttributes addObject:attributes];
+    self.headersAttribute[@(section)] = attributes;
+    [self.allItemAttributes addObject:attributes];
 
-      top = CGRectGetMaxY(attributes.frame) + headerInset.bottom;
-    }
+    top = CGRectGetMaxY(attributes.frame) + headerInset.bottom;
 
     top += sectionInset.top;
     for (idx = 0; idx < columnCount; idx++) {
